@@ -1,13 +1,13 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', '246800', 'inmobilink');
+//$db = mysqli_connect('localhost', 'root', '246800', 'inmobilink_');
 
-// $db = mysqli_connect(
-//     $_ENV['DB_HOST'],
-//     $_ENV['DB_USER'],
-//     $_ENV['DB_PASS'],
-//     $_ENV['DB_NAME']
-// );
+$db = mysqli_connect(
+    $_ENV['DB_HOST'],
+    $_ENV['DB_USER'],
+    $_ENV['DB_PASS'],
+    $_ENV['DB_NAME']
+);
 
 if (!$db) {
     echo "Error: No se pudo conectar a MySQL.";
