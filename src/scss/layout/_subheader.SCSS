@@ -1,0 +1,47 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as mx;
+
+.cabecera_img {
+    @include mx.imgFondo('/build/img/imgP/fondo3.webp');
+
+}
+
+.contenedor {
+    .contactos {
+        h2 {
+            margin: 2.5rem 0;
+            text-align: center;
+            color: v.$primario;
+            font-weight: v.$delgada;
+        }
+
+        .contactanosFormas {
+            display: flex;
+            flex-direction: column;
+            color: v.$primario;
+            text-align: center;
+            font-size: 4rem;
+            justify-content: space-evenly;
+
+            @include mx.telefono {
+                flex-direction: row;
+            }
+
+            p {
+                span {
+                    color: v.$blanco;
+                    font-size: 1.6rem;
+                }
+            }
+
+            .separador {
+                border: v.$primario .2rem solid;
+                margin: 2rem 1rem 1rem;
+
+                @include mx.telefono {
+                    height: 22rem;
+                }
+            }
+        }
+    }
+}

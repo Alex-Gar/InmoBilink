@@ -1,0 +1,213 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as mx;
+
+.contenedorSecundario {
+    max-width: 65%;
+    margin: 0 auto;
+
+    p {
+        font-size: 1.8rem;
+    }
+
+    .tarjetasPrincipales {
+        display: flex;
+        border: v.$oscuroSecundario solid .1rem;
+        margin-top: -10rem;
+        flex-direction: column;
+
+        @include mx.desktop {
+            margin-top: -15rem;
+            flex-direction: row;
+        }
+
+        .infoAcerca {
+            width: 100%;
+            background-color: #dbce11bb;
+
+
+            p,
+            h2 {
+                color: v.$negro;
+            }
+
+            h2 {
+                text-align: center;
+            }
+        }
+
+        .logoAcerca {
+            background-color: v.$negro;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            picture {
+                display: flex;
+
+                img {
+                    width: 80%;
+                    height: 100%;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+.contenedorInfo {
+    margin: 5rem 0 6rem 0;
+    font-size: 1.8rem;
+
+    p {
+        font-size: 1.8rem;
+    }
+
+    li {
+        font-size: 1.8rem;
+
+        span {
+            font-weight: v.$black;
+        }
+    }
+}
+
+.tarjetasSecundarias {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include mx.desktop {
+        flex-direction: row;
+    }
+
+    picture {
+        display: flex;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .imgAcerca {
+        flex-basis: 40%;
+    }
+
+    .infoAcercaS {
+        background-color: v.$primario;
+        flex-basis: 60%;
+        color: v.$negro;
+
+        h2 {
+            text-align: center;
+            margin: 0;
+        }
+
+        .puntosInfo {
+            @include mx.grid(2, 2rem);
+
+            p {
+                margin: 1rem 0;
+                font-size: 1.8rem;
+
+                span {
+                    font-size: 2rem;
+                    font-weight: v.$bold;
+                }
+            }
+        }
+    }
+}
+
+.equipo {
+    .tituloEquipo {
+        padding: 1rem 0 2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        .lineaEquipo {
+            border: 0.1rem solid v.$primario;
+            height: 4rem;
+            width: 0.1rem;
+        }
+
+        h2 {
+            color: v.$blanco;
+            margin-top: 5rem;
+        }
+    }
+
+    .cards {
+        h2 {
+            text-align: center;
+        }
+
+        .card {
+            gap: 2rem;
+
+            @include mx.tablet {
+                display: flex;
+            }
+
+            .conten_img {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+
+                picture {
+                    margin: 2rem auto 5rem auto;
+                    background-color: v.$blanco;
+                    border-radius: 20rem 0 10rem 0;
+                    display: flex;
+
+                    img {
+                        margin: auto;
+                    }
+                }
+            }
+
+            .contenedor_info {
+                .info {
+                    h3 {
+                        text-align: center;
+                        font-size: 2.8rem;
+                    }
+
+                    h4 {
+                        font-size: 2.2rem;
+                        font-weight: v.$delgada;
+                    }
+
+                    p {
+                        @include mx.tablet {
+                            font-size: 2rem;
+                        }
+                    }
+                }
+
+                .linea {
+                    border: .1rem solid #dbcd11;
+                    height: .5rem;
+                    width: 100%;
+                    margin: 0 auto;
+                    background-color: #dbcd11;
+                }
+
+                .contenido {
+                    margin-bottom: 5rem;
+
+                    h3 {
+                        margin: 2rem 0 1rem 0;
+                        text-align: center;
+                    }
+
+                    .btn_contac {
+                        max-width: 20rem;
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+}

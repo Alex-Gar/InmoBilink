@@ -1,0 +1,29 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as mx;
+
+.graficasDash {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    @include mx.tablet{
+        flex-direction: row;
+    }
+
+    .graficaNoPropiedades,
+    .panelInfo {
+        background-color: v.$oscuroSecundario;
+        border-radius: 2rem;
+        padding: 3rem;
+    }
+
+    .graficaNoPropiedades {
+        background-color: v.$oscuroSecundario;
+        border-radius: 2rem;
+    }
+
+    .panelInfo {
+        p{
+        color: v.$blanco;
+        }
+    }
+}

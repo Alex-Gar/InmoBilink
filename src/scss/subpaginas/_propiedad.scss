@@ -1,0 +1,160 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as mx;
+
+.contendorImg {
+    max-width: 95rem;
+    margin: 0 auto;
+
+    picture {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.contenedorInfoPropiedades {
+    display: flex;
+    flex-direction: column;
+
+    @include mx.tablet {
+        flex-direction: row;
+    }
+
+    .infoPropiedades {
+        margin: -3rem 0 0;
+        background-color: #dbce118f;
+        width: 100%;
+
+        .contenedor {
+            max-width: 85%;
+            margin: 0 auto;
+        }
+
+        @include mx.tablet {
+            margin: -45rem 0 0 0;
+            width: 60%;
+        }
+
+        h1 {
+            font-weight: v.$black;
+            font-size: 5rem;
+            line-height: .8;
+            margin: 3rem 0;
+        }
+
+        .linea {
+            border: solid .4rem v.$primario;
+            width: 18%;
+        }
+
+        p {
+            font-size: 2.5rem;
+            margin: 1.5rem 0;
+
+            span {
+                font-size: 1.7rem;
+                display: flex;
+            }
+        }
+
+        h2 {
+            font-weight: v.$delgada;
+            margin: 1rem 0;
+        }
+    }
+}
+
+.infoCaracteristicas {
+    max-width: 80%;
+    margin: 0 auto;
+
+    h3 {
+        color: v.$primario;
+        font-weight: v.$delgada;
+        margin: 1.5rem 0;
+        font-size: 2rem;
+        text-align: center;
+        letter-spacing: .2rem;
+    }
+
+    .contenedor_empresa {
+        display: flex;
+        align-items: center;
+        color: v.$negro;
+
+        .contenedor_img {
+            margin: 2rem 0;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                width: 18rem;
+            }
+        }
+
+        .contenedor_info_empresa {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 100%);
+            width: 70%;
+
+            P {
+                margin: 0 0 0 2rem;
+
+                span {
+                    font-weight: v.$black;
+
+                }
+            }
+        }
+    }
+
+    .infoCaracte {
+        @include mx.grid(3, 0 1rem);
+        text-align: center;
+
+        p {
+            margin: 1rem 0;
+            font-size: 1.3rem;
+            letter-spacing: .10rem;
+
+            i {
+                font-size: 2.2rem;
+            }
+        }
+
+        .columna {
+            display: flex;
+            flex-direction: column;
+            color: v.$blanco;
+        }
+
+        .fila {
+            align-items: center;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+}
+
+.caracteristicas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+@include mx.tablet() {
+    .caracteristicas {
+        flex-direction: row;
+
+    }
+}
+.acciones{
+    a{
+        color: v.$blanco;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

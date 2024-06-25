@@ -1,0 +1,22 @@
+@use 'base/variables' as v;
+
+#selected_nav{
+    border-bottom: .5rem solid v.$primario;
+    padding: 0 0 .4rem 0;
+}
+.alerta {
+    padding: .5rem;
+    text-align: center;
+    color: v.$blanco;
+    font-weight: v.$bold;
+    text-transform: uppercase;
+    margin: 1rem 0;
+
+    &.error {
+        background-color: v.$rojo;
+    }
+
+    &.exito {
+        background-color: v.$verde;
+    }
+}
