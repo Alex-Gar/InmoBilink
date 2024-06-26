@@ -8,7 +8,7 @@ function iniciarApp() {
 
 async function cAPICardsPropiedades() {
     try {
-        const url = 'http://localhost:300/api/info/propiedades';
+        const url = '/api/info/propiedades';
         const resultado = await fetch(url);
         const propiedades = await resultado.json();
         sliderImg(propiedades);
