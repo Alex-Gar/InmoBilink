@@ -1,13 +1,14 @@
 (function () {
     const graficaNoPropiedades = document.getElementById('graficaNoPropiedades');
+    obtenerDatos();
+
     if (graficaNoPropiedades) {
-        obtenerDatos();
         async function obtenerDatos() {
-            const url = '/api/info/propiedades';
+            const url = '/api/no/propiedades';
             const respuesta = await fetch(url);
-            console.log(respuesta);
             const resultado = await respuesta.json();
 
+            console.log(resultado);
             new Chart(graficaNoPropiedades, {
                 type: 'doughnut',
                 data: {

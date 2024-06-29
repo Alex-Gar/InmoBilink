@@ -2,15 +2,12 @@
 
 namespace Controllers;
 
+use Classes\Email;
 use MVC\Router;
-use Model\ActiveRecord;
 use Model\Empresas;
-use Model\Finalidades;
 use Model\Propietarios;
 use Model\Paquetes;
-use Model\Propiedades;
 use Model\Roles;
-use Model\TipoPropiedades;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
@@ -80,7 +77,6 @@ class AdminController
             header('Location: /');
         }
         $alertas = [];
-
         $propietario = Propietarios::find($idPropierario);
         $paquetes = Paquetes::all();
         $roles = Roles::all();
@@ -89,26 +85,36 @@ class AdminController
 
             $propietario->sincronizar($args);
             $alertas = $propietario->validar();
-            if (empty($errores)) {
+            if (empty($alertas)) {
+                $propietario->hashPassword();
+                //Generar un token unico
+                $propietario->crearToken();
+                $propietario->confirmado = 0;
+                //Enviar e-mail
+                $email = new Email($propietario->nombre, $propietario->p_apellido, $propietario->s_apellido, $propietario->email, $propietario->token);
+                $email->enviarConfirmacion();
                 $resultado = $propietario->guardar();
                 if ($resultado) {
                     Propietarios::setAlerta('exito', 'Su información se ha guardado correctamente');
+                    session_start();
+                    $_SESSION = [];
+                    header('Location: /');
                 }
             } else {
                 Propietarios::setAlerta('error', 'Ocurrió un error al actualizar su información');
             }
         }
-        $errores = Propietarios::getAlertas();
-
+        $alertas = Propietarios::getAlertas();
         $router->renderDashboard('admin/acercaDe', [
             'nombre' => $_SESSION['nombre'],
             'rol' => $_SESSION['rol_user'],
             'propietario' => $propietario,
             'paquetes' => $paquetes,
-            'errores' => $errores,
+            'alertas' => $alertas,
             'roles' => $roles,
         ]);
     }
+
     public static function infoDe(Router $router)
     {
         session_start();
@@ -116,7 +122,7 @@ class AdminController
         $empresa = Empresas::find($idPropierario);
         $propietarios = Propietarios::all();
 
-        $errores = Empresas::getErrores();
+        $errores = Empresas::getAlertas();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $args = $_POST['empresa'];

@@ -123,6 +123,6 @@
     </div>
 </div>
 <?php
-$carrucel = '<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>';
 $appPaginas = "<script src='../build/js/appPaginas.js'></script>";
+$desplegarForm = "<script src='../build/js/desplegarForm.js'></script>";
 ?>

@@ -9,21 +9,26 @@
                         <label for="id_propietario">Selecciona el propietario</label>
                         <?php foreach ($propietarios as $propietario) {
                             if ($empresa->id_propietario === $propietario->id) { ?>
-                                <div class="inputFalse"><?php echo s($propietario->nombre . ' ' . $propietario->p_apellido . ' ' . $propietario->s_apellido); ?></div>
-                        <?php }
+                                <div class="inputFalse">
+                                    <?php echo s($propietario->nombre . ' ' . $propietario->p_apellido . ' ' . $propietario->s_apellido); ?>
+                                </div>
+                            <?php }
                         } ?>
                     </div>
                     <div class="campoContactanos">
                         <label for="nombre_empresa">Nombre de la inmobiliaria</label>
-                        <input type="text" name="empresa[nombre_empresa]" id="nombre_empresa" placeholder="Valor de la propiedad" value="<?php echo s($empresa->nombre_empresa); ?>">
+                        <input type="text" name="empresa[nombre_empresa]" id="nombre_empresa"
+                            placeholder="Valor de la propiedad" value="<?php echo s($empresa->nombre_empresa); ?>">
                     </div>
                     <div class="campoContactanos">
                         <label for="descripcion">Descripción de la inmobiliaria</label>
-                        <textarea name="empresa[descripcion]" id="descripcion" cols="30" rows="10" placeholder="Ingresa una descripción acerca de la propiedad, es importante agregarla para que el publico conozca acerca de ella."><?php echo $empresa->descripcion; ?></textarea>
+                        <textarea name="empresa[descripcion]" id="descripcion" cols="30" rows="10"
+                            placeholder="Ingresa una descripción acerca de la propiedad, es importante agregarla para que el publico conozca acerca de ella."><?php echo $empresa->descripcion; ?></textarea>
                     </div>
                     <div class="campoContactanos">
                         <label for="slogan">Slogan</label>
-                        <textarea name="empresa[slogan]" id="slogan" cols="30" rows="10" placeholder="Ingresa un slogan que defina su vision como vendedores"><?php echo $empresa->slogan; ?></textarea>
+                        <textarea name="empresa[slogan]" id="slogan" cols="30" rows="10"
+                            placeholder="Ingresa un slogan que defina su vision como vendedores"><?php echo $empresa->slogan; ?></textarea>
                     </div>
             </fieldset>
         </div>
@@ -38,39 +43,49 @@
                 <div class="camposFormulario">
                     <div class="campoContactanos">
                         <label for="pais">pais</label>
-                        <input type="text" name="empresa[pais]" id="pais" placeholder="Ingresa el nombre del pais" value="<?php echo s($empresa->pais); ?>">
+                        <input type="text" name="empresa[pais]" id="pais" placeholder="Ingresa el nombre del pais"
+                            value="<?php echo s($empresa->pais); ?>">
                     </div>
                     <div class="campoContactanos">
                         <label for="estado">Estado</label>
-                        <input type="text" name="empresa[estado]" id="estado" placeholder="Ingresa el nombre del estado" value="<?php echo s($empresa->estado); ?>">
+                        <input type="text" name="empresa[estado]" id="estado" placeholder="Ingresa el nombre del estado"
+                            value="<?php echo s($empresa->estado); ?>">
                     </div>
                     <div class="campoContactanos">
                         <label for="municipio">Municipio</label>
-                        <input type="text" name="empresa[municipio]" id="municipio" placeholder="Ingresa el nombre del municipio" value="<?php echo s($empresa->municipio); ?>">
+                        <input type="text" name="empresa[municipio]" id="municipio"
+                            placeholder="Ingresa el nombre del municipio" value="<?php echo s($empresa->municipio); ?>">
                     </div>
                     <div class="campoContactanos">
                         <label for="localidad">Localidad</label>
-                        <input type="text" name="empresa[localidad]" id="localidad" placeholder="Ingresa el nombre de la localidad" value="<?php echo s($empresa->localidad); ?>">
+                        <input type="text" name="empresa[localidad]" id="localidad"
+                            placeholder="Ingresa el nombre de la localidad"
+                            value="<?php echo s($empresa->localidad); ?>">
                     </div>
                     <div class="campoContactanos">
                         <label for="colonia">Colonia</label>
-                        <input type="text" name="empresa[colonia]" id="colonia" placeholder="Ingresa el nombre de la colonia" value="<?php echo s($empresa->colonia); ?>">
+                        <input type="text" name="empresa[colonia]" id="colonia"
+                            placeholder="Ingresa el nombre de la colonia" value="<?php echo s($empresa->colonia); ?>">
                     </div>
                     <div class="campoContactanos">
                         <label for="calle">Calle</label>
-                        <input type="text" name="empresa[calle]" id="calle" placeholder="Ingresa el nombre de la calle" value="<?php echo s($empresa->calle); ?>">
+                        <input type="text" name="empresa[calle]" id="calle" placeholder="Ingresa el nombre de la calle"
+                            value="<?php echo s($empresa->calle); ?>">
                     </div>
                     <div class="campoContactanos">
                         <label for="no_exterior">N° Exterior</label>
-                        <input type="number" name="empresa[no_exterior]" id="no_exterior" placeholder="Ingresa el numero exterior" value="<?php echo s($empresa->no_exterior); ?>">
+                        <input type="number" name="empresa[no_exterior]" id="no_exterior"
+                            placeholder="Ingresa el numero exterior" value="<?php echo s($empresa->no_exterior); ?>">
                     </div>
                     <div class="campoContactanos">
                         <label for="no_interior">N° Interior</label>
-                        <input type="number" name="empresa[no_interior]" id="no_interior" placeholder="Ingresa el numero interior" value="<?php echo s($empresa->no_interior); ?>">
+                        <input type="number" name="empresa[no_interior]" id="no_interior"
+                            placeholder="Ingresa el numero interior" value="<?php echo s($empresa->no_interior); ?>">
                     </div>
                     <div class="campoContactanos">
                         <label for="codigo_postal">Código postal</label>
-                        <input type="number" name="empresa[codigo_postal]" id="codigo_postal" placeholder="Ingresa el numero interior" value="<?php echo s($empresa->codigo_postal); ?>">
+                        <input type="number" name="empresa[codigo_postal]" id="codigo_postal"
+                            placeholder="Ingresa el numero interior" value="<?php echo s($empresa->codigo_postal); ?>">
                     </div>
                 </div>
             </fieldset>
@@ -89,17 +104,18 @@
                         <div class="container-input">
                             <?php if ($empresa->img1) { ?>
                                 <picture>
-                                   <!-- <source srcset="../build/img/imgDb/inmobilink1.avif" type="image/avif">
+                                    <!-- <source srcset="../build/img/imgDb/inmobilink1.avif" type="image/avif">
                                     <source srcset="../build/img/imgDb/inmobilink1.webp" type="image/webp">
                                     <source srcset="../build/img/imgDb/inmobilink1.png" type="image/png">
                                     <img loading="lazy" src="../build/img/imgDb/inmobilink1.png" alt="Logo InmoBilink" width="600" height="400"> -->
-                                    <img loading="lazy" src="<?php echo '../build/img/imgDb/' . $empresa->img1;?>" alt="<?php echo $empresa->img1; ?> width=" 600" height="400"">
+                                    <img loading="lazy" src="<?php echo '../build/img/imgDb/' . $empresa->img1; ?>"
+                                        alt="<?php echo $empresa->img1; ?>" width="600" height="400">
                                 </picture>
                             <?php } ?>
                             <label for=" img1">Imagen N° 1</label>
-                                <input type="file" id="imagen" accept="image/jpeg, image/png" name="empresa[img1]">
+                            <input type="file" id="imagen" accept="image/jpeg, image/png" name="empresa[img1]">
 
-                                <!--   <input type="file" name="imagenes[img1]" id="file-7" class="inputfile inputfile-7" accept="image/jpeg, image/png" />
+                            <!--   <input type="file" name="imagenes[img1]" id="file-7" class="inputfile inputfile-7" accept="image/jpeg, image/png" />
                                         <label for="file-7">
                                             <span class="iborrainputfile"></span>
                                             <strong>
@@ -115,11 +131,12 @@
                         <div class="container-input">
                             <?php if ($empresa->img2) { ?>
                                 <picture>
-                                   <!-- <source srcset="../build/img/imgDb/inmobilink1.avif" type="image/avif">
+                                    <!-- <source srcset="../build/img/imgDb/inmobilink1.avif" type="image/avif">
                                     <source srcset="../build/img/imgDb/inmobilink1.webp" type="image/webp">
                                     <source srcset="../build/img/imgDb/inmobilink1.png" type="image/png">
                                     <img loading="lazy" src="../build/img/imgDb/inmobilink1.png" alt="Logo InmoBilink" width="600" height="400"> -->
-                                    <img loading="lazy" src="<?php echo '../build/img/imgDb/'  . $empresa->img2; ?>" alt="<?php echo $empresa->img2; ?>" width="600" height="400">
+                                    <img loading="lazy" src="<?php echo '../build/img/imgDb/' . $empresa->img2; ?>"
+                                        alt="<?php echo $empresa->img2; ?>" width="600" height="400">
                                 </picture>
                             <?php } ?>
                             <label for="">Imagen N° 2</label>

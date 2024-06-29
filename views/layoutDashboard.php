@@ -33,12 +33,39 @@
             </div>
             <div class="head">
                 <div class="img_logo">
-                    <picture>
-                        <source srcset="../build/img/imgP/inmobilink1.avif" type="image/avif">
-                        <source srcset="../build/img/imgP/inmobilink1.webp" type="image/webp">
-                        <source srcset="../build/img/imgP/inmobilink1.png" type="image/png">
-                        <img loading="lazy" src="../build/img/imgP/inmobilink1.png" alt="Logo InmoBilink" width="600" height="400">
-                    </picture>
+                    <?php if ($rol == 1) { ?>
+                        <a href="/admin">
+                            <picture>
+                                <source srcset="../build/img/imgP/inmobilink1.avif" type="image/avif">
+                                <source srcset="../build/img/imgP/inmobilink1.webp" type="image/webp">
+                                <source srcset="../build/img/imgP/inmobilink1.png" type="image/png">
+                                <img loading="lazy" src="../build/img/imgP/inmobilink1.png" alt="Logo InmoBilink"
+                                    width="600" height="400">
+                            </picture>
+                        </a>
+                    <?php }
+                    if ($rol == 2 || $rol == 3) { ?>
+                        <a href="/admin-vendedor">
+                            <picture>
+                                <source srcset="../build/img/imgP/inmobilink1.avif" type="image/avif">
+                                <source srcset="../build/img/imgP/inmobilink1.webp" type="image/webp">
+                                <source srcset="../build/img/imgP/inmobilink1.png" type="image/png">
+                                <img loading="lazy" src="../build/img/imgP/inmobilink1.png" alt="Logo InmoBilink"
+                                    width="600" height="400">
+                            </picture>
+                        </a>
+                    <?php }
+                    if ($rol == 4) { ?>
+                        <a href="/admin-inmobiliaria">
+                            <picture>
+                                <source srcset="../build/img/imgP/inmobilink1.avif" type="image/avif">
+                                <source srcset="../build/img/imgP/inmobilink1.webp" type="image/webp">
+                                <source srcset="../build/img/imgP/inmobilink1.png" type="image/png">
+                                <img loading="lazy" src="../build/img/imgP/inmobilink1.png" alt="Logo InmoBilink"
+                                    width="600" height="400">
+                            </picture>
+                        </a>
+                    <?php } ?>
                 </div>
             </div>
             <div class="nav">
@@ -77,7 +104,7 @@
                             <ul class="sub-menu">
                                 <?php
                                 if ($rol == 1) {
-                                ?>
+                                    ?>
                                     <li>
                                         <a href="/propietarios">
                                             <span class="text">Propietarios</span>
@@ -91,26 +118,26 @@
                                 </li>
                                 <?php
                                 if ($rol == 1) {
-                                ?>
+                                    ?>
                                     <li>
                                         <a href="/bienes-r">
                                             <span class="text">Empresas</span>
                                         </a>
                                     </li>
-                                <?php  } ?>
+                                <?php } ?>
 
                             </ul>
                         </li>
                         <?php
                         if ($rol == 1) {
-                        ?>
+                            ?>
                             <li class="active">
                                 <a href="/propietarios/crear">
                                     <i class="icon ph-bold ph-user"></i>
                                     <span class="text">Nuevo vendedor</span>
                                 </a>
                             </li>
-                        <?php  } ?>
+                        <?php } ?>
                         <li class="">
                             <a href="/propiedad/crear">
                                 <i class="icon ph-bold ph-user"></i>
@@ -119,7 +146,7 @@
                         </li>
                         <?php
                         if ($rol == 1) {
-                        ?>
+                            ?>
                             <li class="">
                                 <a href="/bienes-r/crear">
                                     <i class="icon ph-bold ph-user"></i>
@@ -146,7 +173,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        <?php  } ?>
+                        <?php } ?>
                     </ul>
                 </div>
                 <div class="menu">
@@ -165,7 +192,7 @@
                                 </li>
                                 <?php
                                 if ($rol == 4) {
-                                ?>
+                                    ?>
                                     <li>
                                         <a href="/info-de">
                                             <span class="text">Mi inmobiliaria</span>
@@ -211,7 +238,8 @@
                                             <source srcset="../build/img/imgP/inmobilink1.avif" type="image/avif">
                                             <source srcset="../build/img/imgP/inmobilink1.webp" type="image/webp">
                                             <source srcset="../build/img/imgP/inmobilink1.png" type="image/png">
-                                            <img loading="lazy" src="../build/img/imgP/inmobilink1.png" alt="Logo InmoBilink" width="600" height="400">
+                                            <img loading="lazy" src="../build/img/imgP/inmobilink1.png"
+                                                alt="Logo InmoBilink" width="600" height="400">
                                         </picture>
                                     </div>
                                     <span class="text"><?php echo $nombre; ?></span>
@@ -226,22 +254,22 @@
             echo $contenido;
             ?>
         </div>
+    </div>
 
-        <script>
-            /* Initialization of datatables */
-            $(document).ready(function() {
-                $('table.display').DataTable();
-            });
-        </script>
-        <!--
+    <script>
+        /* Initialization of datatables */
+        $(document).ready(function () {
+            $('table.display').DataTable();
+        });
+    </script>
+    <!--
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script> -->
-        <script src='../build/js/menuSidebar.js'></script>
-        <script src='../build/js/navAdmin.js'></script>
-        <?php
-        echo $graficaL2 ?? null;
-        echo $graficaL1 ?? null;
-        echo $grafica ?? null;
-        ?>
+    <script src='../build/js/menuSidebar.js'></script>
+
+    <?php
+    echo $navForm ?? null;
+    echo $grafica ?? null;
+    ?>
 </body>

@@ -1,10 +1,5 @@
 <div class="contenedor">
-
-    <?php foreach ($errores as $error) : ?>
-        <div class="alerta error">
-            <?php echo $error; ?>
-        </div>
-    <?php endforeach; ?>
+<?php include_once __DIR__ . '/../templates/alertas.php'; ?>
 
     <div id="app">
         <nav class="tabs">
@@ -15,22 +10,20 @@
             <button type="button" data-paso="5">Ubicación</button>
             <button type="button" data-paso="6">Imágenes</button>
         </nav>
-
         <form method="POST" enctype="multipart/form-data">
             <?php include __DIR__ . '/formulario.php'; ?>
-
-            <div class="btn_izq">
-                <input class="boton_primario" type="submit" value="Guardar">
+            <div class="btn_form">
+                <input class="btn" type="submit" value="Guardar">
             </div>
             </fieldset>
     </div>
 </div>
 </div>
 </form>
-
 <div class="paginacion ">
-    <button id="anterior" class="boton_primario">&laquo; Anterior</button>
-    <button id="siguiente" class="boton_primario">Siguiente&raquo;</button>
+    <button id="anterior" class="btn">&laquo; Anterior</button>
+    <button id="siguiente" class="btn">Siguiente&raquo;</button>
 </div>
 </div>
 </div>
+<?php $navForm = "<script src='../build/js/navAdmin.js'></script> "?>

@@ -1,0 +1,13 @@
+@use 'base/variables' as v;
+
+.img_cuenta {
+    picture {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.content_box {
+    padding-bottom: 5rem;
+
+}

@@ -71,23 +71,25 @@ class LoginController
     }
     public static function confirmar(Router $router)
     {
-        // $errores = [];
-        // $token = s($_GET['token']);
-        // $propietario = Propietarios::where('token', $token);
-        // if (empty($propietario)) {
-        //     Propietarios::setAlerta('error', 'Token no válido');
-        // } else {
-        //     $propietario->confirmado = "1";
-        //     $propietario->token = null;
+        $alertas = [];
+        $ocultarFooter = true;
+        $token = s($_GET['token']);
+        $propietario = array_shift(Propietarios::where('token', $token));
 
-        //     $propietario->guardar();
-        //     Propietarios::setAlerta('exito', 'Cuenta confirmada correctamente, puedes iniciar sesión ');
-        // }
+        if (empty($propietario)) {
+            Propietarios::setAlerta('error', 'Token no válido');
+        } else {
+            $propietario->confirmado = 1;
+            $propietario->token = null;
+            $propietario->guardar();
+            Propietarios::setAlerta('exito', 'Cuenta confirmada correctamente, puedes iniciar sesión ');
+        }
 
-        // $errores = Propietarios::getAlertas();
-        // $router->render('auth/confirmar-cuenta', [
-        //     'errores' => $errores,
-        // ]);
+        $alertas = Propietarios::getAlertas();
+        $router->render('auth/confirmar-cuenta', [
+            'alertas' => $alertas,
+            'ocultarFooter' => $ocultarFooter,
+        ]);
     }
     public static function olvide(Router $router)
     {

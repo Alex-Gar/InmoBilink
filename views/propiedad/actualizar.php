@@ -1,10 +1,5 @@
 <div class="contenedor">
-    <?php
-    foreach ($alertas as $error) : ?>
-        <div class="alerta error">
-            <?php echo $error; ?>
-        </div>
-    <?php endforeach; ?>
+    <?php include_once __DIR__ . '/../templates/alertas.php'; ?>
     <div id="app">
         <nav class="tabs">
             <button class="actual" type="button" data-paso="1">Información de la propiedad</button>
@@ -31,3 +26,5 @@
 </div>
 </div>
 </div>
+
+<?php $navForm = "<script src='../build/js/navAdmin.js'></script> " ?>

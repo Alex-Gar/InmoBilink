@@ -2,12 +2,7 @@
     <div class="formularioContactanos">
         <div class="contenedor">
 
-            <?php foreach ($errores as $error) { ?>
-                <div class="alerta error">
-                    <p><?php echo $error; ?></p>
-                </div>
-            <?php } ?>
-
+        <?php include_once __DIR__ . '/../templates/alertas.php'; ?>
             <form method="POST">
                 <?php include __DIR__ . '/formulario.php'; ?>
 

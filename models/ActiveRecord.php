@@ -12,6 +12,7 @@ class ActiveRecord
 
     // Alertas y Mensajes
     protected static $alertas = [];
+    protected static $atributoId = '';
 
     // Definir la conexión a la BD - includes/database.php
     public static function setDB($database)
@@ -74,7 +75,8 @@ class ActiveRecord
     {
         $atributos = [];
         foreach (static::$columnasDB as $columna) {
-            if ($columna === 'id') continue;
+            if ($columna === 'id')
+                continue;
             $atributos[$columna] = $this->$columna;
         }
         return $atributos;
@@ -126,8 +128,7 @@ class ActiveRecord
     // Busca un registro por su id
     public static function find($id)
     {
-        $query = "SELECT * FROM " . static::$tabla  . " WHERE " . static::$atributoId . " = {$id}";
-
+        $query = "SELECT * FROM " . static::$tabla . " WHERE " . static::$atributoId . " = {$id}";
         $resultado = self::consultarSQL($query);
         return array_shift($resultado);
     }
@@ -156,7 +157,7 @@ class ActiveRecord
         // Resultado de la consulta
         $resultado = self::$db->query($query);
         return [
-            'resultado' =>  $resultado,
+            'resultado' => $resultado,
             'id' => self::$db->insert_id
         ];
     }
@@ -175,7 +176,7 @@ class ActiveRecord
 
         // Consulta SQL
         $query = "UPDATE " . static::$tabla . " SET ";
-        $query .=  join(', ', $valores);
+        $query .= join(', ', $valores);
         $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
         $query .= " LIMIT 1 ";
 
@@ -187,7 +188,7 @@ class ActiveRecord
     // Eliminar un Registro por su ID
     public function eliminar()
     {
-        $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
         $resultado = self::$db->query($query);
         return $resultado;
     }

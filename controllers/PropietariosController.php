@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Clases\Email;
+use Classes\Email;
 use MVC\Router;
 use Model\Empresas;
 use Model\Imagenes;
@@ -30,7 +30,7 @@ class PropietariosController
     public static function crear(Router $router)
     {
         session_start();
-        $errores = Propietarios::getErrores();
+        $errores = Propietarios::getAlertas();
         $propietario = new Propietarios;
         $paquetes = Paquetes::all();
         $roles = Roles::all();
@@ -90,7 +90,7 @@ class PropietariosController
     public static function actualizar(Router $router)
     {
         session_start();
-        $errores = Propietarios::getErrores();
+        $alertas = [];
         $id = validarORedireccionar('/admin');
         $propietario = Propietarios::find($id);
         $paquetes = Paquetes::all();
@@ -99,22 +99,24 @@ class PropietariosController
             $args = $_POST['propietario'];
 
             $propietario->sincronizar($args);
-            $errores = $propietario->validar();
+            $alertas = $propietario->validar();
 
-            if (empty($errores)) {
+            if (empty($alertas)) {
                 $resultado = $propietario->guardar();
                 if ($resultado) {
-                    echo '<script> window.location.href = "/propietarios"; alert("Información guarda correctamente"); </script>';
+                    Propietarios::setAlerta('error', 'Información guarda correctamente.');
                 }
             } else {
-                echo '<script> window.location.href = "/propietarios"; alert("Error intente de nuevo"); </script>';
+                Propietarios::setAlerta('error', 'Error al actualizar intente de nuevo.');
             }
         }
+
+        $alertas = Propietarios::getAlertas();
         $router->renderDashboard('propietarios/actualizar', [
             'nombre' => $_SESSION['nombre'],
             'propietario' => $propietario,
             'paquetes' => $paquetes,
-            'errores' => $errores,
+            'alertas' => $alertas,
             'roles' => $roles,
         ]);
     }

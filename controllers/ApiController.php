@@ -1,10 +1,7 @@
 <?php
-
 namespace Controllers;
 
-use Model\Empresas;
 use Model\Paquetes;
-use Model\Propiedades;
 use Model\Propietarios;
 use Model\VPropiedad;
 
@@ -13,6 +10,7 @@ class ApiController
     public static function noPropiedades()
     {
         $datos = [];
+
         $idPropietario = $_SESSION['id'];
         $propiedades = Propietarios::find($idPropietario);
         $noPropiedades = $propiedades->no_propiedades;
@@ -25,12 +23,14 @@ class ApiController
         $noPaquete = Paquetes::find($noPaquetes);
         $limitePropiedades = $noPaquete->no_propiedades;
 
-        $propiedadesRestantes =  $limitePropiedades - $noPropiedades;
+        $propiedadesRestantes = $limitePropiedades - $noPropiedades;
+
         $datos[] = [
             'etiqueta' => 'Propiedades Disponibles',
             'valor' => $propiedadesRestantes
         ];
 
+        // Convertir todo el array en JSON y enviarlo como respuesta
         echo json_encode($datos);
         return;
     }

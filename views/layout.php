@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="InmoBilink - Especialistas en la promoción y publicación de propiedades. Descubre las mejores opciones de inmuebles en venta y alquiler. Encuentra tu hogar ideal con nosotros.">
-    <meta name="keywords" content="inmuebles, propiedades, venta de casas, alquiler de apartamentos, promoción inmobiliaria, publicación de propiedades, InmoBilink">
+    <meta name="description"
+        content="InmoBilink - Especialistas en la promoción y publicación de propiedades. Descubre las mejores opciones de inmuebles en venta y alquiler. Encuentra tu hogar ideal con nosotros.">
+    <meta name="keywords"
+        content="inmuebles, propiedades, venta de casas, alquiler de apartamentos, promoción inmobiliaria, publicación de propiedades, InmoBilink">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="InmoBilink">
-    <meta property="og:description" content="Especialistas en la promoción y publicación de propiedades. Descubre las mejores opciones de inmuebles en venta y alquiler. Encuentra tu hogar ideal con nosotros.">
-
+    <meta property="og:description"
+        content="Especialistas en la promoción y publicación de propiedades. Descubre las mejores opciones de inmuebles en venta y alquiler. Encuentra tu hogar ideal con nosotros.">
     <link rel="apple-touch-icon" sizes="180x180" href="../build/img/imgP/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../build/img/imgP//favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../build/img/imgP//favicon-16x16.png">
-    <link rel="manifest" href="../build/img/imgP//site.webmanifest">
-    <link rel="mask-icon" href="../build/img/imgP//safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="icon" type="image/png" sizes="32x32" href="../build/img/imgP/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../build/img/imgP/favicon-16x16.png">
+    <link rel="manifest" href="../build/img/imgP/site.webmanifest">
+    <link rel="mask-icon" href="../build/img/imgP/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <!--<meta property="og:image" content="https://www.ejemplo.com/imagen.jpg">
@@ -25,11 +27,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"> -->
     <!-- Enlazar CSS Floating WhatsApp -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://rawcdn.githack.com/jerfeson/floating-whatsapp/0310b4cd88e9e55dc637d1466670da26b645ae49/floating-wpp.min.css">
+    <link rel="stylesheet"
+        href="https://rawcdn.githack.com/jerfeson/floating-whatsapp/0310b4cd88e9e55dc637d1466670da26b645ae49/floating-wpp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../build/css/app.css">
-
     <title>InmoBilink</title>
 </head>
 
@@ -42,7 +44,8 @@
                         <source srcset="../build/img/imgP/inmobilink1.avif" type="image/avif">
                         <source srcset="../build/img/imgP/inmobilink1.webp" type="image/webp">
                         <source srcset="../build/img/imgP/inmobilink1.png" type="image/png">
-                        <img loading="lazy" src="../build/img/imgP/inmobilink1.png" alt="Logo InmoBilink" width="600" height="400">
+                        <img loading="lazy" src="../build/img/imgP/inmobilink1.png" alt="Logo InmoBilink" width="600"
+                            height="400">
                     </picture>
                 </a>
             </div>
@@ -69,7 +72,7 @@
     <?php
     echo $contenido;
     if (!$ocultarFooter) {
-    ?>
+        ?>
         <div class="fondo_footer">
             <footer class="contenedor">
                 <div class="footer">
@@ -85,7 +88,8 @@
                                 <source srcset="../build/img/imgP/inmobilink1.avif" type="image/avif">
                                 <source srcset="../build/img/imgP/inmobilink1.webp" type="image/webp">
                                 <source srcset="../build/img/imgP/inmobilink1.png" type="image/png">
-                                <img loading="lazy" src="../build/img/imgP/inmobilink1.png" alt="Logo InmoBilink" width="600" height="400">
+                                <img loading="lazy" src="../build/img/imgP/inmobilink1.png" alt="Logo InmoBilink"
+                                    width="600" height="400">
                             </picture>
                         </a>
                     </div>
@@ -134,7 +138,8 @@
     <?php } ?>
     <!-- Enlazar JS Floating WhatsApp -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="https://rawcdn.githack.com/jerfeson/floating-whatsapp/0310b4cd88e9e55dc637d1466670da26b645ae49/floating-wpp.min.js"></script>
+    <script type="text/javascript"
+        src="https://rawcdn.githack.com/jerfeson/floating-whatsapp/0310b4cd88e9e55dc637d1466670da26b645ae49/floating-wpp.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!--  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>-->
@@ -146,6 +151,7 @@
     echo $apisPagPrin ?? null;
     echo $desplegarForm ?? null;
     echo $apisAvanzado ?? null;
+    echo $slider ?? null;
     ?>
 </body>
 
